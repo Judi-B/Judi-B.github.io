@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $headers = array("From: $name <$email>", "Reply-To: $email", "X-Mailer: PHP/". PHP_VERSION);
         $subject = "Portfolio: mail from $name";
 
+        echo "True";
         // Send email
         if (mail($recipient, $subject, $message, $headers)) {
             echo "<p>Email sent successfully!</p>";
