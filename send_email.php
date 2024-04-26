@@ -28,13 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $recipient = "judyalbaghajati1234@gmail.com";
 
         // Additional headers
-        $headers = "From: $name <$email>";
+        $headers = array("From: $name <$email>", "Reply-To: $email", "X-Mailer: PHP/". PHP_VERSION);
+        $subject = "Portfolio: mail from $name";
 
         // Send email
-        if (mail($recipient, $message, $headers)) {
-            echo "Email sent successfully!";
+        if (mail($recipient, $subject, $message, $headers)) {
+            echo "<p>Email sent successfully!</p>";
         } else {
-            echo "Failed to send email. Please try again later.";
+            echo "<p>Failed to send email. Please try again later.</p>";
         }
     } else {
         // Display errors

@@ -33,22 +33,6 @@ hamburger_menu.addEventListener("click", () => {
 
 links.forEach((link) => link.addEventListener("click", () => closeMenu()));
 
-filter_btns.forEach((btn) =>
-  btn.addEventListener("click", () => {
-    filter_btns.forEach((button) => button.classList.remove("active"));
-    btn.classList.add("active");
-
-    let filterValue = btn.dataset.filter;
-
-    $(".grid").isotope({ filter: filterValue });
-  })
-);
-
-$(".grid").isotope({
-  itemSelector: ".grid-item",
-  layoutMode: "fitRows",
-  transitionDuration: "0.6s",
-});
 
 window.addEventListener("scroll", () => {
   skillsEffect();
@@ -100,14 +84,3 @@ var mySwiper = new Swiper(".swiper-container", {
   },
 });
 
-function ShowHidden(){
-  var btn = document.getElementById("showHidden");
-  var hidden = document.getElementById("hidden");
-  if (hidden.style.display === "none"){
-    hidden.style.display = "block";
-    btn.innerHTML = "Show Less";
-  } else {
-    hidden.style.display = "none";
-    btn.innerHTML = "Show More";
-  }
-}
